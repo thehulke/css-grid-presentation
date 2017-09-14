@@ -6,9 +6,14 @@ import {
     Deck,
     Heading,
     Markdown,
+    CodePane,
+    List,
+    ListItem,
     Link,
     Slide,
     Text,
+    Fill,
+    Code,
     Appear
 } from "spectacle";
 
@@ -67,11 +72,45 @@ const htmlCode =
   </footer>
 </div>`;
 
+const cssGrid =
+          `.container {
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 90px 1fr 50px;
+  
+  grid-template-areas: 
+    "header header header"
+    "nav main actions"
+    "footer footer footer";
+ 
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+
+.left {
+  grid-area: nav;
+}
+
+.right {
+  grid-area: actions;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}`;
+
 const theme = createTheme({
-    blue  : "#3679B5",
-    yellow: "#EEB902",
-    grey  : "#474647",
-    white : "white"
+    primary   : "#3679B5",
+    secondary : "#f8b72b",
+    tertiary  : "#474647",
+    quartenary: "white"
 }, {
     primary  : "Helvetica Neue",
     secondary: "Montserrat",
@@ -83,11 +122,11 @@ export default class Presentation extends React.Component {
         return (
             <Deck transition={["fade", "fade"]} transitionDuration={500} theme={theme}>
 
-                <Slide transisiton={["fade"]} bgColor="blue">
-                    <Heading size={2} fit caps textColor="white">Basic Layout</Heading>
+                <Slide transisiton={["fade"]} bgColor="primary">
+                    <Heading size={2} fit caps textColor="quartenary">Basic Layout</Heading>
 
                     <Link bold href="https://codepen.io/liorgrs/full/MyGEQa?editors=1100" target="blank"
-                          textColor="yellow">
+                          textColor="secondary">
                         <i className="fa fa-codepen"/> View on codepen
                     </Link>
                 </Slide>
@@ -98,10 +137,10 @@ export default class Presentation extends React.Component {
                     textSize={30}
                     transition={["fade"]}
                     lang="html"
-                    bgColor="grey"
+                    bgColor="tertiary"
                     code={htmlCode}
                     ranges={[
-                        {loc: [0, 18], title: "flexBox"},
+                        {loc: [0, 18], title: ": flex"},
                         {loc: [0, 1], note: ".wrapper { display: flex; flex-direction: column; }"},
                         {loc: [9, 13], note: ".main { display: flex; }"},
                         {loc: [10, 11], note: ".main-sidebar { max-width: 300px; min-width: 200px }"},
@@ -109,30 +148,67 @@ export default class Presentation extends React.Component {
                     ]}
                 />
 
-                <Slide transisiton={["fade", "slide"]} bgColor="white">
+                <Slide transisiton={["fade", "slide"]} bgColor="quartenary">
 
-                    <Heading size={2} caps textColor="blue">conclusion</Heading>
+                    <Heading size={2} caps textColor="primary">conclusion</Heading>
 
                     <Appear fid="1">
-                        <Text>Every opposite dimension requires to add an extra .wrapper</Text>
+                        <Text lineHeight={1.2}>
+                            Every opposite dimension requires adding an extra <Code>.wrapper</Code> (or any container
+                            component).
+                        </Text>
                     </Appear>
-
-                        {/*<Markdown>{*/}
-                            {/*'Every opposite dimension requires to add an extra `.wrapper` '*/}
-                        {/*}</Markdown>*/}
 
                 </Slide>
 
-                <Slide transition={["fade"]} bgColor="blue">
-                    <Heading size={1} caps lineHeight={1} textColor="yellow" textFont="secondary">
-                        #
+                <Slide transition={["fade"]} bgColor="primary">
+                    <Heading size={1} caps lineHeight={1} textColor="secondary" textFont="secondary">
+                        Welcome
                     </Heading>
-                    <Text margin="10px 0 0" textColor="white" size={1} fit>
+                    <Text margin="10px 0" textColor="quartenary" size={1} fit>
                         {"{ display : grid }"}
                     </Text>
                 </Slide>
+
+                <Slide transition={["fade"]} bgColor="primary">
+                    <Heading textColor="secondary" caps>Why?</Heading>
+                    <List textColor="quartenary">
+                        <Appear><ListItem>2 Dimensional</ListItem></Appear>
+                        <Appear><ListItem>Contextual (structure is described in CSS)</ListItem></Appear>
+                        <Appear><ListItem>Back to media queries (very few of them)</ListItem></Appear>
+                    </List>
+
+                    <Appear>
+                        <Link bold href="https://codepen.io/liorgrs/full/GMgwmN" target="blank"
+                              textColor="secondary">
+                            <i className="fa fa-codepen"/> View on codepen
+                        </Link>
+                    </Appear>
+                </Slide>
+
+                <CodeSlide
+                    textSize={30}
+                    transition={["fade"]}
+                    lang="css"
+                    bgColor="tertiary"
+                    code={cssGrid}
+                    ranges={[
+                        {loc: [0, 21]},
+                        {loc: [0, 12]},
+                        {loc: [2, 4], note: 'fr = fraction'},
+                        {loc: [5, 9]},
+                        {loc: [13, 16], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                        {loc: [17, 20], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                        {loc: [21, 23], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                        {loc: [25, 28], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                        {loc: [29, 32], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                    ]}
+                />
 
             </Deck>
         );
     }
 }
+
+// TODO: Add resources slide.
+// TODO: Add examples where we can implement it on our product.
