@@ -197,13 +197,81 @@ export default class Presentation extends React.Component {
                         {loc: [0, 12]},
                         {loc: [2, 4], note: 'fr = fraction'},
                         {loc: [5, 9]},
-                        {loc: [13, 16], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
-                        {loc: [17, 20], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
-                        {loc: [21, 23], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
-                        {loc: [25, 28], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
-                        {loc: [29, 32], note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;' },
+                        {
+                            loc : [13, 16],
+                            note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;'
+                        },
+                        {
+                            loc : [17, 20],
+                            note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;'
+                        },
+                        {
+                            loc : [21, 23],
+                            note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;'
+                        },
+                        {
+                            loc : [25, 28],
+                            note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;'
+                        },
+                        {
+                            loc : [29, 32],
+                            note: 'grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;'
+                        },
                     ]}
                 />
+
+                <Slide transition={["fade"]} bgColor="primary">
+                    <Heading textColor="secondary" caps>References</Heading>
+                    <List textColor="white">
+                        <ListItem >
+                            <Link textSize={35} href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="blank"
+                                  textColor="white">
+                                {/*<i className="fa fa-codepen"/> */}
+                                A Complete Guide To css - CSS Tricks
+                            </Link>
+                        </ListItem>
+
+                        <ListItem>
+                            <Link textSize={35} href="https://github.com/FormidableLabs/spectacle" target="blank"
+                                  textColor="white">
+                                {/*<i className="fa fa-codepen"/> */}
+                                Spectacle - ReactJS based Presentation Library
+                            </Link>
+                        </ListItem>
+
+                        <ListItem>
+                            <Link textSize={35} href="https://bitsofco.de/holy-grail-layout-css-grid" target="blank"
+                                  textColor="white">
+                                {/*<i className="fa fa-codepen"/> */}
+                                CSS Grid Holy Grail Layout
+                            </Link>
+                        </ListItem>
+
+                        <ListItem>
+                            <Link textSize={35} href="https://gridbyexample.com/examples/" target="blank"
+                                  textColor="white">
+                                {/*<i className="fa fa-codepen"/> */}
+                                CSS Grid Examples
+                            </Link>
+                        </ListItem>
+
+
+                        <ListItem>
+                            <Link textSize={35} href="https://www.youtube.com/watch?v=txZq7Laz7_4" target="blank"
+                                  textColor="white">
+                                <i className="fa fa-youtube-play"/> CSS Grid Changes Everything (About Web Layouts)
+                            </Link>
+                        </ListItem>
+
+                        <ListItem>
+                            <Link textSize={35} href="https://www.youtube.com/watch?v=jV8B24rSN5o&t=899s" target="blank"
+                                  textColor="white">
+                                <i className="fa fa-youtube-play"/> CSS Grid Crash Course
+                            </Link>
+                        </ListItem>
+                    </List>
+
+                </Slide>
 
             </Deck>
         );
