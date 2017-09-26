@@ -125,7 +125,7 @@ export default class Presentation extends React.Component {
                 <Slide transisiton={["fade"]} bgColor="primary">
                     <Heading size={2} fit caps textColor="quartenary">Basic Layout</Heading>
 
-                    <Link bold href="https://codepen.io/liorgrs/full/MyGEQa?editors=1100" target="blank"
+                    <Link bold href="https://codepen.io/liorgrs/full/MyGEQa" target="blank"
                           textColor="secondary">
                         <i className="fa fa-codepen"/> View on codepen
                     </Link>
