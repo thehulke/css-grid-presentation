@@ -171,6 +171,13 @@ export default class Presentation extends React.Component {
                 </Slide>
 
                 <Slide transition={["fade"]} bgColor="primary">
+                    <Link bold href="https://codepen.io/liorgrs/full/GMgwmN" target="blank"
+                          textColor="secondary">
+                        <i className="fa fa-codepen"/> CSS-Grid Holy Grail
+                    </Link>
+                </Slide>
+
+                <Slide transition={["fade"]} bgColor="primary">
                     <Heading textColor="secondary" caps>Why?</Heading>
                     <List textColor="quartenary">
                         <Appear><ListItem>2 Dimensional</ListItem></Appear>
